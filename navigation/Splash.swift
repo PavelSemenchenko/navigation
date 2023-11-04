@@ -8,8 +8,15 @@
 import SwiftUI
 
 struct Splash: View {
+    @EnvironmentObject private var navigationVM: NavigationRouter
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        Text("Splash")
+            .onAppear {
+            DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
+                navigationVM.pushScreen(route: .home)
+            }
+        }
     }
 }
 

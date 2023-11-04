@@ -8,8 +8,16 @@
 import SwiftUI
 
 struct Home: View {
+    @EnvironmentObject private var navigationVM: NavigationRouter
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        VStack {
+            Text("Home")
+            Button("Sign In") {
+                // what to do
+                navigationVM.pushScreen(route: .signIn)
+            }
+        }
     }
 }
 
