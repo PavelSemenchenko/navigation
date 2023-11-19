@@ -14,7 +14,7 @@ struct Splash: View {
         Text("Splash")
             .onAppear {
             DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
-                navigationVM.pushScreen(route: .home)
+                navigationVM.pushScreen(route: .signIn)
             }
         }
     }

@@ -6,9 +6,19 @@
 //
 
 import SwiftUI
+import FirebaseCore
+
+class AppDelegate: NSObject, UIApplicationDelegate {
+  func application(_ application: UIApplication,
+                   didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool {
+    FirebaseApp.configure()
+    return true
+  }
+}
 
 @main
 struct navigationApp: App {
+    @UIApplicationDelegateAdaptor(AppDelegate.self) var delegate
     @ObservedObject var navigationVM = NavigationRouter()
     
     var body: some Scene {
@@ -20,7 +30,7 @@ struct navigationApp: App {
                         case .splash:
                             Splash()
                         case .signIn:
-                            SignIn()
+                            SignInScreen()
                         case .signUp:
                             SignUp()
                         case .home:
